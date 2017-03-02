@@ -57,7 +57,6 @@ module.exports = NodeHelper.create({
         // otherwise get a named list
         RTS.getRottenTomatoesScraperData( function(error, data) {
             if (!error) {
-            	console.log("Sending back!");
                 var returnPayload = {identifier: theConfig.identifier
                 						, rtData: data};
                 self.sendSocketNotification('ROTTEN_TOMATOES_UPDATE', returnPayload );
