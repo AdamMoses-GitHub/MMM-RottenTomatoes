@@ -100,90 +100,96 @@ Module.register("MMM-RottenTomatoes", {
 		var wrapper = document.createElement("table");
 		// do opening this week
 		var allOTWandCSRows = [ ];
-		var otwData = this.rtData.openingThisWeek;
-		var otwTitleTR = document.createElement("tr");
-		otwTitleTR.className = titleSize;
-		var otwTitleTD = document.createElement("td");
-		otwTitleTD.innerHTML = "Opening This Week";
-		if (this.config.mergeOpeningAndComingSoon)
-			otwTitleTD.innerHTML = "Opening / Coming Soon";
-		otwTitleTD.colSpan = "3";
-		otwTitleTR.appendChild(otwTitleTD);
-		allOTWandCSRows.push(otwTitleTR);
-		for (var cIndex = 0; 
-				(cIndex < otwData.length) && (cIndex < this.config.limitOpeningThisWeek); 
-				cIndex++) {
-			var cOTW = otwData[cIndex];
-			var otwRowTR = document.createElement("tr");	
-			otwRowTR.className = movieSize;
-			var otwRowMeter = document.createElement("td");
-			otwRowMeter.innerHTML = this.cleanScore(cOTW.meter) + "&nbsp;&nbsp;";
-			otwRowTR.appendChild(otwRowMeter);
-			var otwRowTitle = document.createElement("td");
-			otwRowTitle.innerHTML = cOTW.title + "&nbsp;&nbsp;";
-			otwRowTitle.align = 'left';
-			otwRowTR.appendChild(otwRowTitle);
-			var otwRowDate = document.createElement("td");
-			otwRowDate.innerHTML = "&nbsp;&nbsp;" + cOTW.date;
-			otwRowTR.appendChild(otwRowDate);
-			allOTWandCSRows.push(otwRowTR);
+		if (this.config.showOpeningThisWeek) {
+			var otwData = this.rtData.openingThisWeek;
+			var otwTitleTR = document.createElement("tr");
+			otwTitleTR.className = titleSize;
+			var otwTitleTD = document.createElement("td");
+			otwTitleTD.innerHTML = "Opening This Week";
+			if (this.config.mergeOpeningAndComingSoon)
+				otwTitleTD.innerHTML = "Opening / Coming Soon";
+			otwTitleTD.colSpan = "3";
+			otwTitleTR.appendChild(otwTitleTD);
+			allOTWandCSRows.push(otwTitleTR);
+			for (var cIndex = 0; 
+					(cIndex < otwData.length) && (cIndex < this.config.limitOpeningThisWeek); 
+					cIndex++) {
+				var cOTW = otwData[cIndex];
+				var otwRowTR = document.createElement("tr");	
+				otwRowTR.className = movieSize;
+				var otwRowMeter = document.createElement("td");
+				otwRowMeter.innerHTML = this.cleanScore(cOTW.meter) + "&nbsp;&nbsp;";
+				otwRowTR.appendChild(otwRowMeter);
+				var otwRowTitle = document.createElement("td");
+				otwRowTitle.innerHTML = cOTW.title + "&nbsp;&nbsp;";
+				otwRowTitle.align = 'left';
+				otwRowTR.appendChild(otwRowTitle);
+				var otwRowDate = document.createElement("td");
+				otwRowDate.innerHTML = "&nbsp;&nbsp;" + cOTW.date;
+				otwRowTR.appendChild(otwRowDate);
+				allOTWandCSRows.push(otwRowTR);
+			}
 		}
 		// do opening this week
-		var csData = this.rtData.comingSoon;
-		var csTitleTR = document.createElement("tr");
-		csTitleTR.className = titleSize;
-		var csTitleTD = document.createElement("td");
-		csTitleTD.innerHTML = "Coming Soon";
-		csTitleTD.colSpan = "3";
-		csTitleTR.appendChild(csTitleTD);
-		if (!this.config.mergeOpeningAndComingSoon)
-			allOTWandCSRows.push(csTitleTR);
-		for (var cIndex = 0; 
-				(cIndex < csData.length) && (cIndex < this.config.limitComingSoon); 
-				cIndex++) {
-			var ccs = csData[cIndex];
-			var csRowTR = document.createElement("tr");	
-			csRowTR.className = movieSize;
-			var csRowMeter = document.createElement("td");
-			csRowMeter.innerHTML = this.cleanScore(ccs.meter) + "&nbsp;&nbsp;";
-			csRowTR.appendChild(csRowMeter);
-			var csRowTitle = document.createElement("td");
-			csRowTitle.innerHTML = ccs.title + "&nbsp;&nbsp;";
-			csRowTitle.align = 'left';
-			csRowTR.appendChild(csRowTitle);
-			var csRowDate = document.createElement("td");
-			csRowDate.innerHTML = "&nbsp;&nbsp;" + ccs.date;
-			csRowTR.appendChild(csRowDate);
-			allOTWandCSRows.push(csRowTR);
-		}				
+		if (this.config.showOpeningThisWeek) {
+			var csData = this.rtData.comingSoon;
+			var csTitleTR = document.createElement("tr");
+			csTitleTR.className = titleSize;
+			var csTitleTD = document.createElement("td");
+			csTitleTD.innerHTML = "Coming Soon";
+			csTitleTD.colSpan = "3";
+			csTitleTR.appendChild(csTitleTD);
+			if (!this.config.mergeOpeningAndComingSoon)
+				allOTWandCSRows.push(csTitleTR);
+			for (var cIndex = 0; 
+					(cIndex < csData.length) && (cIndex < this.config.limitComingSoon); 
+					cIndex++) {
+				var ccs = csData[cIndex];
+				var csRowTR = document.createElement("tr");	
+				csRowTR.className = movieSize;
+				var csRowMeter = document.createElement("td");
+				csRowMeter.innerHTML = this.cleanScore(ccs.meter) + "&nbsp;&nbsp;";
+				csRowTR.appendChild(csRowMeter);
+				var csRowTitle = document.createElement("td");
+				csRowTitle.innerHTML = ccs.title + "&nbsp;&nbsp;";
+				csRowTitle.align = 'left';
+				csRowTR.appendChild(csRowTitle);
+				var csRowDate = document.createElement("td");
+				csRowDate.innerHTML = "&nbsp;&nbsp;" + ccs.date;
+				csRowTR.appendChild(csRowDate);
+				allOTWandCSRows.push(csRowTR);
+			}	
+		}		
 		// do box office
 		var boRows = [ ];
-		var boData = this.rtData.boxOffice;
-		var boTitleTR = document.createElement("tr");
-		boTitleTR.className = titleSize;
-		var boTitleTD = document.createElement("td");
-		boTitleTD.innerHTML = "Box Office";
-		boTitleTD.width = "250px";
-		boTitleTD.colSpan = "3";
-		boTitleTR.appendChild(boTitleTD);
-		boRows.push(boTitleTR);
-		for (var cIndex = 0; 
-				(cIndex < boData.length) && (cIndex < this.config.limitBoxOffice); 
-				cIndex++) {
-			var cbo = boData[cIndex];
-			var boRowTR = document.createElement("tr");	
-			boRowTR.className = movieSize;
-			var boRowMeter = document.createElement("td");
-			boRowMeter.innerHTML = this.cleanScore(cbo.meter) + "&nbsp;&nbsp;";
-			boRowTR.appendChild(boRowMeter);
-			var boRowTitle = document.createElement("td");
-			boRowTitle.innerHTML = cbo.title + "&nbsp;&nbsp;";
-			boRowTitle.align = 'left';
-			boRowTR.appendChild(boRowTitle);
-			var boRowGross = document.createElement("td");
-			boRowGross.innerHTML = "&nbsp;&nbsp;" + cbo.gross;
-			boRowTR.appendChild(boRowGross);
-			boRows.push(boRowTR);
+		if (this.config.showBoxOffice) {
+			var boData = this.rtData.boxOffice;
+			var boTitleTR = document.createElement("tr");
+			boTitleTR.className = titleSize;
+			var boTitleTD = document.createElement("td");
+			boTitleTD.innerHTML = "Box Office";
+			boTitleTD.width = "250px";
+			boTitleTD.colSpan = "3";
+			boTitleTR.appendChild(boTitleTD);
+			boRows.push(boTitleTR);
+			for (var cIndex = 0; 
+					(cIndex < boData.length) && (cIndex < this.config.limitBoxOffice); 
+					cIndex++) {
+				var cbo = boData[cIndex];
+				var boRowTR = document.createElement("tr");	
+				boRowTR.className = movieSize;
+				var boRowMeter = document.createElement("td");
+				boRowMeter.innerHTML = this.cleanScore(cbo.meter) + "&nbsp;&nbsp;";
+				boRowTR.appendChild(boRowMeter);
+				var boRowTitle = document.createElement("td");
+				boRowTitle.innerHTML = cbo.title + "&nbsp;&nbsp;";
+				boRowTitle.align = 'left';
+				boRowTR.appendChild(boRowTitle);
+				var boRowGross = document.createElement("td");
+				boRowGross.innerHTML = "&nbsp;&nbsp;" + cbo.gross;
+				boRowTR.appendChild(boRowGross);
+				boRows.push(boRowTR);
+			}
 		}
 		// build the table
         var allRows = [ ];
