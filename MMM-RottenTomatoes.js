@@ -30,8 +30,8 @@ Module.register("MMM-RottenTomatoes", {
 	start: function() {
 		// log starting
 		Log.info("Starting module: " + this.name);
-		// set refresh rate to 12 hours
-		this.config.refreshRate = 12 * 60 * 60 * 1000;
+		// set refresh rate to 6 hours
+		this.config.refreshRate = 6 * 60 * 60 * 1000;
         // set an identier config tag
 		this.config.identifier = this.identifier;
 		// set loaded, error, and the update to init values
