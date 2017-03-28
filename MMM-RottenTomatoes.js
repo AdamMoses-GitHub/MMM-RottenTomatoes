@@ -20,7 +20,7 @@ Module.register("MMM-RottenTomatoes", {
 		showOpeningThisWeek: true,
 		showBoxOffice: true,
 		showComingSoon: true,
-		limitOpeningThisWeek: 4,
+		limitOpeningThisWeek: 3,
 		limitBoxOffice: 3,
 		limitComingSoon: 3,
 		boxOfficeAfter: true,
