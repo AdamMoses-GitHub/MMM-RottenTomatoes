@@ -20,8 +20,8 @@ Module.register("MMM-RottenTomatoes", {
 		showOpeningThisWeek: true,
 		showBoxOffice: true,
 		showComingSoon: true,
-		limitOpeningThisWeek: 5,
-		limitBoxOffice: 5,
+		limitOpeningThisWeek: 4,
+		limitBoxOffice: 3,
 		limitComingSoon: 3,
 		boxOfficeAfter: true,
 		mergeOpeningAndComingSoon: true,
@@ -95,7 +95,7 @@ Module.register("MMM-RottenTomatoes", {
 			wrapper.innerHTML = "Awaiting Update...";
 			return wrapper;			
 		}
-		var titleSize = 'small';
+		var titleSize = 'xsmall';
 		var movieSize = 'xsmall';
 		var wrapper = document.createElement("table");
 		// do opening this week
