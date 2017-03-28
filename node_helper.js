@@ -36,7 +36,7 @@ module.exports = NodeHelper.create({
             this.updateRTData(payload);
             // schedule the updates
             this.timers[this.timers.length] = setInterval(
-                function() { self.updateTweets(payload); }, payload.refreshRate);
+                function() { self.updateRTData(payload); }, payload.refreshRate);
         }
     },
     // increment error count, if passed limit send notice to module and stop updates
