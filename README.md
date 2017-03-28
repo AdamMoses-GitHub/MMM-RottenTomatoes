@@ -63,16 +63,16 @@ The following properties can be configured:
         <tr>
 			<td><code>limitBoxOffice</code></td>
 			<td>The number of movies to be shown in the box office listing. Setting to zero will show all available.<br>
-				<br><b>Example:</b> <code>3</code>
-				<br><b>Default value:</b> <code>5</code>
+				<br><b>Example:</b> <code>4</code>
+				<br><b>Default value:</b> <code>3</code>
 				<br>This value is <b>OPTIONAL</b>
 			</td>
 		</tr>
         <tr>
 			<td><code>limitOpeningThisWeek</code></td>
 			<td>The number of movies to be shown in the opening this week listing. Setting to zero will show all available.<br>
-				<br><b>Example:</b> <code>3</code>
-				<br><b>Default value:</b> <code>5</code>
+				<br><b>Example:</b> <code>4</code>
+				<br><b>Default value:</b> <code>3</code>
 				<br>This value is <b>OPTIONAL</b>
 			</td>
 		</tr>      
