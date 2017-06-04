@@ -79,6 +79,13 @@ Module.register("MMM-RottenTomatoes", {
 		else
 			return theScore;
 	},
+	//
+	cleanTitle: function(theTitle) {
+		if (theTitle.length > 28)
+			return theTitle.slice(0, 28) + '...';
+		else
+			return theTitle;
+	},
 	// the get dom handler
 	getDom: function() {
         // if an error, say so
@@ -121,7 +128,7 @@ Module.register("MMM-RottenTomatoes", {
 				otwRowMeter.innerHTML = this.cleanScore(cOTW.meter) + "&nbsp;&nbsp;";
 				otwRowTR.appendChild(otwRowMeter);
 				var otwRowTitle = document.createElement("td");
-				otwRowTitle.innerHTML = cOTW.title + "&nbsp;&nbsp;";
+				otwRowTitle.innerHTML = this.cleanTitle(cOTW.title) + "&nbsp;&nbsp;";
 				otwRowTitle.align = 'left';
 				otwRowTR.appendChild(otwRowTitle);
 				var otwRowDate = document.createElement("td");
@@ -151,7 +158,7 @@ Module.register("MMM-RottenTomatoes", {
 				csRowMeter.innerHTML = this.cleanScore(ccs.meter) + "&nbsp;&nbsp;";
 				csRowTR.appendChild(csRowMeter);
 				var csRowTitle = document.createElement("td");
-				csRowTitle.innerHTML = ccs.title + "&nbsp;&nbsp;";
+				csRowTitle.innerHTML = this.cleanTitle(ccs.title) + "&nbsp;&nbsp;";
 				csRowTitle.align = 'left';
 				csRowTR.appendChild(csRowTitle);
 				var csRowDate = document.createElement("td");
@@ -182,7 +189,7 @@ Module.register("MMM-RottenTomatoes", {
 				boRowMeter.innerHTML = this.cleanScore(cbo.meter) + "&nbsp;&nbsp;";
 				boRowTR.appendChild(boRowMeter);
 				var boRowTitle = document.createElement("td");
-				boRowTitle.innerHTML = cbo.title + "&nbsp;&nbsp;";
+				boRowTitle.innerHTML = this.cleanTitle(cbo.title) + "&nbsp;&nbsp;";
 				boRowTitle.align = 'left';
 				boRowTR.appendChild(boRowTitle);
 				var boRowGross = document.createElement("td");
