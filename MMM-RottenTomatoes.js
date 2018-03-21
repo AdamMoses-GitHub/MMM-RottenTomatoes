@@ -18,7 +18,7 @@ Module.register("MMM-RottenTomatoes", {
 		// optional
 		showHeader: true,
 		showOpeningThisWeek: true,
-		showBoxOffice: false,
+		showBoxOffice: true,
 		showComingSoon: true,
 		limitOpeningThisWeek: 3,
 		limitBoxOffice: 3,
