@@ -159,7 +159,7 @@ Module.register("MMM-RottenTomatoes", {
 			csTitleTR.className = titleSize;
 			var csTitleTD = document.createElement("td");
 			csTitleTD.innerHTML = "Coming Soon";
-			csTitleTD.colSpan = "4";
+			csTitleTD.colSpan = "3";
 			csTitleTR.appendChild(csTitleTD);
 			if (!this.config.mergeOpeningAndComingSoon)
 				allOTWandCSRows.push(csTitleTR);
