@@ -99,6 +99,14 @@ The following properties can be configured:
 				<br><b>Default value:</b> <code>true</code>
 				<br>This value is <b>OPTIONAL</b>
 			</td>
+		</tr>
+		<tr>
+			<td><code>showTomatoImages</code></td>
+			<td>Boolean value, Whether or not to display rotten tomatoes fresh/rotten images next to the percentages.<br>
+				<br><b>Example:</b> <code>false</code>
+				<br><b>Default value:</b> <code>true</code>
+				<br>This value is <b>OPTIONAL</b>
+			</td>
 		</tr> 
     </tbody>
 </table>
