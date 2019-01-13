@@ -174,10 +174,10 @@ Module.register("MMM-RottenTomatoes", {
 				if (this.config.showTomatoImages == true) {
 					var csRowTomato = document.createElement("td");
 					var moviepercent = parseFloat(this.cleanScore(ccs.meter)) / 100.0;
-					if(moviepercent < .75)
+					if(moviepercent < .60)
 					{
 						csRowTomato.innerHTML = '<img src="modules/MMM-RottenTomatoes/icons/splat-16.png">' + "&nbsp;&nbsp;";
-					}else if (moviepercent >= .75) {
+					}else if (moviepercent >= .60) {
 						csRowTomato.innerHTML = '<img src="modules/MMM-RottenTomatoes/icons/fresh-16.png">' + "&nbsp;&nbsp;";
 					}
 					csRowTR.appendChild(csRowTomato);
