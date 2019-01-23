@@ -25,6 +25,7 @@ Module.register("MMM-RottenTomatoes", {
 		limitComingSoon: 3,
 		boxOfficeAfter: true,
 		mergeOpeningAndComingSoon: true,
+		showTomatoImages: true,
 	},
 	// the start function
 	start: function() {
@@ -103,7 +104,7 @@ Module.register("MMM-RottenTomatoes", {
 			return wrapper;			
 		}
 		var titleSize = 'xsmall';
-		var movieSize = 'xsmall';
+		var movieSize = 'small';
 		var wrapper = document.createElement("table");
 		// do opening this week
 		var allOTWandCSRows = [ ];
@@ -122,8 +123,22 @@ Module.register("MMM-RottenTomatoes", {
 					(cIndex < otwData.length) && (cIndex < this.config.limitOpeningThisWeek); 
 					cIndex++) {
 				var cOTW = otwData[cIndex];
-				var otwRowTR = document.createElement("tr");	
+				var otwRowTR = document.createElement("tr");
+
+				// This section shows the either rotten or fresh rating based on percentage
 				otwRowTR.className = movieSize;
+				if (this.config.showTomatoImages == true) {
+					var otwRowTomato = document.createElement("td");
+					var otwmoviepercent = parseFloat(this.cleanScore(cOTW.meter)) / 100.0;
+                                	if(otwmoviepercent < .75)
+                                	{
+                                        	otwRowTomato.innerHTML = '<img src="modules/MMM-RottenTomatoes/icons/splat-16.png">' + "&nbsp;&nbsp;";
+                                	}else if (otwmoviepercent >= .75) {
+	                                      	otwRowTomato.innerHTML = '<img src="modules/MMM-RottenTomatoes/icons/fresh-16.png">' + "&nbsp;&nbsp;";
+                                	}
+                                	otwRowTR.appendChild(otwRowTomato);
+				}
+
 				var otwRowMeter = document.createElement("td");
 				otwRowMeter.innerHTML = this.cleanScore(cOTW.meter) + "&nbsp;&nbsp;";
 				otwRowTR.appendChild(otwRowMeter);
@@ -154,6 +169,20 @@ Module.register("MMM-RottenTomatoes", {
 				var ccs = csData[cIndex];
 				var csRowTR = document.createElement("tr");	
 				csRowTR.className = movieSize;
+
+				// This section shows the either rotten or fresh rating based on percentage
+				if (this.config.showTomatoImages == true) {
+					var csRowTomato = document.createElement("td");
+					var moviepercent = parseFloat(this.cleanScore(ccs.meter)) / 100.0;
+					if(moviepercent < .60)
+					{
+						csRowTomato.innerHTML = '<img src="modules/MMM-RottenTomatoes/icons/splat-16.png">' + "&nbsp;&nbsp;";
+					}else if (moviepercent >= .60) {
+						csRowTomato.innerHTML = '<img src="modules/MMM-RottenTomatoes/icons/fresh-16.png">' + "&nbsp;&nbsp;";
+					}
+					csRowTR.appendChild(csRowTomato);
+				}
+
 				var csRowMeter = document.createElement("td");
 				csRowMeter.innerHTML = this.cleanScore(ccs.meter) + "&nbsp;&nbsp;";
 				csRowTR.appendChild(csRowMeter);
